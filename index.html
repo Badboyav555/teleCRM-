@@ -603,7 +603,7 @@ async function genDemo(id){
     if(!lead)return;
     const cat=lead.category||'School';
     const demoPage=CAT_CFG[cat]?CAT_CFG[cat].demo:'school.html';
-    const demoUrl='https://yourdomain.com/'+demoPage+'?name='+encodeURIComponent(lead.name)+'&phone='+encodeURIComponent(lead.phone||'')+'&city='+encodeURIComponent(lead.city||'');
+    const demoUrl='https://webdev.badboyav555.workers.dev/'+demoPage+'?name='+encodeURIComponent(lead.name)+'&phone='+encodeURIComponent(lead.phone||'')+'&city='+encodeURIComponent(lead.city||'');
     const{error}=await sb.from('leads').update({demo_link:demoUrl}).eq('id',id);
     if(error){toast('Failed to save link');return}
     navigator.clipboard.writeText(demoUrl).catch(()=>{});
